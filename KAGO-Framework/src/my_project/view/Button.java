@@ -73,4 +73,8 @@ public class Button extends InteractiveGraphicalObject {
     public void mousePressed(MouseEvent e) {
 
     }
+
+    public void aktulisiereAnzeige(String text){
+        this.text = text;
+    }
 }

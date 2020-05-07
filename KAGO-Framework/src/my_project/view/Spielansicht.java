@@ -34,7 +34,7 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.drawText(20,20,aktuelleFrage);
+        drawTool.drawText(20,40,aktuelleFrage);
     }
 
     @Override
@@ -43,14 +43,20 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
     }
 
     private void setzteErsteFrage(){
-        aktualisiereFragenWerte();
+        antworten = gC.getAktuelleFrage().getAntworten();
+        aktuelleFrage = gC.getAktuelleFrage().getText();
         for(int i = 0; i < antwortenButtons.length; i++){
             antwortenButtons[i] = new Button(i, 0, 300+i*40, antworten[i].getAntwortText(), 40, this);
+            vC.draw(antwortenButtons[i], 1);
+            vC.register(antwortenButtons[i], 1);
         }
     }
 
-    private void aktualisiereFragenWerte(){
+    public void aktualisiereFragenWerte(){
         antworten = gC.getAktuelleFrage().getAntworten();
+        for(int i = 0; i < antwortenButtons.length; i++){
+            antwortenButtons[i].aktulisiereAnzeige(antworten[i].getAntwortText());
+        }
         aktuelleFrage = gC.getAktuelleFrage().getText();
     }
 }

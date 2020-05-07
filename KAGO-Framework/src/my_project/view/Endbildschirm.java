@@ -18,12 +18,14 @@ public class Endbildschirm extends GraphicalObject implements ButtonUser {
     public Endbildschirm(GameControll gC, ViewController vC) {
         this.gC = gC;
         this.vC = vC;
-        wiederholungsButton = new Button(0, 150, 150, "Try it again", 60, this);
+        wiederholungsButton = new Button(0, 150, 400, "Try it again", 60, this);
+        vC.draw(wiederholungsButton, 2);
+        vC.register(wiederholungsButton, 2);
     }
 
     @Override
     public void draw(DrawTool drawTool) {
-
+        drawTool.drawText(150,150, gC.getAktuelleFrage().getText());
     }
 
     @Override
@@ -34,5 +36,8 @@ public class Endbildschirm extends GraphicalObject implements ButtonUser {
     @Override
     public void reagiereAufButton(int buttonNummer) {
         gC.setScene(0);
+        gC.setzeAufAnfang();
     }
+
+
 }

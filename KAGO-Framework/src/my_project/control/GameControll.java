@@ -25,13 +25,14 @@ public class GameControll {
         vC.createScene();
         vC.createScene();
         vC.createScene();
+        erstelleDenBaum();
         startbildschirm = new Startbildschirm(this, vC);
         vC.draw(startbildschirm, 0);
         spielansicht = new Spielansicht(this, vC);
         vC.draw(spielansicht, 1);
         endbildschirm = new Endbildschirm(this, vC);
         vC.draw(endbildschirm, 2);
-        erstelleDenBaum();
+
     }
 
 
@@ -110,6 +111,8 @@ public class GameControll {
 
         fragen.setLeftTree(eins01);
         fragen.setRightTree(eins02);
+
+        aktuelleFrage = fragen;
     }
 
     public Frage getAktuelleFrage(){
@@ -134,5 +137,10 @@ public class GameControll {
 
     public void setScene(int i){
         vC.showScene(i);
+    }
+
+    public void setzeAufAnfang(){
+        aktuelleFrage = fragen;
+        spielansicht.aktualisiereFragenWerte();
     }
 }
