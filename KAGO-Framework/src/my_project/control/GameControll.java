@@ -43,22 +43,30 @@ public class GameControll {
 
         //Hier müssen alle Fragen ergänzt werden.
         BinaryTree<Frage> rT = new BinaryTree<>();
+        rT.setContent(new Frage("Diese Menschen werden zu seiner neuen Familie.","",0,"",0,"",1,"",1));
         BinaryTree<Frage> lT = new BinaryTree<>();
+        lT.setContent(new Frage("Sein Leben neigt sich dem Ende. Er starb mit seinem Drachen an der Seite.","",0,"",0,"",1,"",1));
         BinaryTree<Frage> fuenf03 = new BinaryTree<>();
+        fuenf03.setContent(new Frage("Du siehst Menschen. Was machst du?","Sie weiter beobachen",1,"Er nähert sich ihnen langsam",1,"Wegrennen",0,"Hallo ganz laut schreien!",0));
         fuenf03.setLeftTree(lT);
         fuenf03.setRightTree(rT);
         BinaryTree<Frage> fuenf01 = new BinaryTree<>();
+        fuenf01.setContent(new Frage("Du bist entkommen und ihr lebt glücklich im Norden","",0,"",0,"",1,"",1));
         BinaryTree<Frage> fuenf02 = new BinaryTree<>();
+        fuenf02.setContent(new Frage("Die Banditen haben erst deinen Drachen und dann dich getötet!","",0,"",0,"",1,"",1));
         BinaryTree<Frage> fuenf04 = new BinaryTree<>();
+        fuenf04.setContent(new Frage("Er gibt sein Bestes, aber es war nicht genug. Sein Drache stirbt und er auch durch sein gebrochenes Herz","",0,"",0,"",1,"",1));
         BinaryTree<Frage> fuenf05 = new BinaryTree<>();
+        fuenf05.setContent(new Frage("Ihr könnt in Frieden leben","",0,"",0,"",1,"",1));
         BinaryTree<Frage> fuenf06 = new BinaryTree<>();
+        fuenf06.setContent(new Frage("Aber das Glück war nicht auf seiner Seite und er musste sterben.","",0,"",0,"",1,"",1));
 
         BinaryTree<Frage> vier01 = new BinaryTree<>();
         vier01.setContent(new Frage("In der Großstadt angekommen, begegnen ihm Banditen. Was macht er?","Mit Schnick, Schnack, Schnuck duellieren",0,"Verzweifelt schreien und Leute damit anlocken",0,"Kämpfe",1,"Wegrennen",1));
         vier01.setLeftTree(fuenf01);
         vier01.setRightTree(fuenf02);
         BinaryTree<Frage> vier02 = new BinaryTree<>();
-        vier02.setContent(new Frage("Noch hat er nicht gefunden. Was macht er?","Nach einem Fluss suchen",0,"Weiter nach Beeren suchen",0,"Weiterhin jagen",1,"Aufgeben",1));
+        vier02.setContent(new Frage("Noch hat er nichts gefunden. Was macht er?","Nach einem Fluss suchen",0,"Weiter nach Beeren suchen",0,"Weiterhin jagen",1,"Aufgeben",1));
         vier02.setLeftTree(fuenf03);
         vier02.setRightTree(fuenf04);
         BinaryTree<Frage> vier03 = new BinaryTree<>();
@@ -68,7 +76,7 @@ public class GameControll {
         BinaryTree<Frage> vier05 = new BinaryTree<>();
         vier05.setContent(new Frage("Die Polizei hat ihn erschossen!","",0,"",0,"",1,"",1));
         BinaryTree<Frage> vier06 = new BinaryTree<>();
-        vier06.setContent(new Frage("Er ist entkommen. Was macht er?","",0,"",0,"",1,"",1));
+        vier06.setContent(new Frage("Er ist entkommen. Was macht er?","Er rennt weg",0,"Er nimmt einen Besen in den Norden",0,"Er versteckt sich in einer Ruine",1,"Er versucht weiter zu stehlen",1));
         vier06.setLeftTree(fuenf05);
         vier06.setRightTree(fuenf06);
 
@@ -101,7 +109,7 @@ public class GameControll {
         zwei04.setRightTree(drei04);
 
         BinaryTree<Frage> eins01 = new BinaryTree<>();
-        eins01.setContent(new Frage("Plötzlich begegnet ihm ein Bär! Was soll er tun?","Er soll wegrennen!",0,"Den Drachen befehlen anzugreifen",0,"Er nimmt einen Stein und versucht ihn zu erschlagen!",1,"Er kämpft gegen ihn!",1));
+        eins01.setContent(new Frage("Plötzlich begegnet ihm ein Bär! Was soll er tun?","Er soll wegrennen!",0,"Dem Drachen befehlen anzugreifen",0,"Er nimmt einen Stein und versucht ihn zu erschlagen!",1,"Er kämpft gegen ihn!",1));
         eins01.setLeftTree(zwei01);
         eins01.setRightTree(zwei02);
         BinaryTree<Frage> eins02 = new BinaryTree<>();
