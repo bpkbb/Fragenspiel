@@ -1,5 +1,6 @@
 package my_project.view;
 
+import KAGO_framework.control.ViewController;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.model.InteractiveGraphicalObject;
 import KAGO_framework.view.DrawTool;
@@ -8,16 +9,23 @@ import my_project.model.ButtonUser;
 
 import java.awt.event.MouseEvent;
 
-public class Startbildschirm extends InteractiveGraphicalObject implements ButtonUser {
+public class Startbildschirm extends GraphicalObject implements ButtonUser {
 
     private String starttext;
+    private StartHintergrund sH;
     private Button startButton;
     private GameControll gC;
+    private ViewController vC;
 
-    public Startbildschirm(GameControll gameControll) {
+    public Startbildschirm(GameControll gameControll, ViewController viewController) {
         starttext = "....";
+        vC = viewController;
+        sH = new StartHintergrund();
+        vC.draw(sH, 0);
         gC = gameControll;
         startButton = new Button(0,300,300,"Lasse das Spiel beginnen", 30, this);
+        vC.draw(startButton, 0);
+        vC.register(startButton, 0);
     }
 
     /*
@@ -25,53 +33,17 @@ public class Startbildschirm extends InteractiveGraphicalObject implements Butto
      */
     @Override
     public void reagiereAufButton(int buttonNummer) {
-        gC.setNextScene();
+        gC.setScene(1);
     }
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.drawFilledRectangle(0,0,1000,700);
+        drawTool.setCurrentColor(255, 0,0,255);
+        drawTool.drawText(100,200, starttext);
     }
 
     @Override
     public void update(double dt) {
 
     }
-
-    @Override
-    public void keyPressed(int key) {
-
-    }
-
-    @Override
-    public void keyReleased(int key) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-
 }

@@ -25,15 +25,12 @@ public class GameControll {
         vC.createScene();
         vC.createScene();
         vC.createScene();
-        startbildschirm = new Startbildschirm(this);
+        startbildschirm = new Startbildschirm(this, vC);
         vC.draw(startbildschirm, 0);
-        vC.register(startbildschirm, 0);
-        spielansicht = new Spielansicht();
+        spielansicht = new Spielansicht(this, vC);
         vC.draw(spielansicht, 1);
-        vC.register(spielansicht, 1);
-        endbildschirm = new Endbildschirm();
+        endbildschirm = new Endbildschirm(this, vC);
         vC.draw(endbildschirm, 2);
-        vC.register(endbildschirm, 2);
         erstelleDenBaum();
     }
 
@@ -115,7 +112,7 @@ public class GameControll {
         }
     }
 
-    public void setNextScene(){
-
+    public void setScene(int i){
+        vC.showScene(i);
     }
 }

@@ -10,10 +10,10 @@ public class Config {
     public final static String WINDOW_TITLE = "Fragenspiel/BT";
 
     // Breite des Programmfensters (Width) und Höhe des Programmfensters (Height)
-    public final static int WINDOW_WIDTH = 1400;
-    public final static int WINDOW_HEIGHT = 979;   // Effektive Höhe ist etwa 29 Pixel geringer (Titelleiste wird mitgezählt)
+    public final static int WINDOW_WIDTH = 1000;
+    public final static int WINDOW_HEIGHT = 700;   // Effektive Höhe ist etwa 29 Pixel geringer (Titelleiste wird mitgezählt)
 
     // Weitere Optionen für das Projekt
-    public final static boolean useSound = true; //Achtung: der SoundtController unterstützt momentan nicht alle Java-Versionen (nur bis Java 9)
+    public final static boolean useSound = false; //Achtung: der SoundtController unterstützt momentan nicht alle Java-Versionen (nur bis Java 9)
 
 }

@@ -1,59 +1,56 @@
 package my_project.view;
 
+import KAGO_framework.control.ViewController;
+import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.model.InteractiveGraphicalObject;
 import KAGO_framework.view.DrawTool;
+import my_project.control.GameControll;
+import my_project.model.Antwort;
+import my_project.model.ButtonUser;
 
 import java.awt.event.MouseEvent;
 
-public class Spielansicht extends InteractiveGraphicalObject {
+public class Spielansicht extends GraphicalObject implements ButtonUser {
 
+    private Button[] antwortenButtons;
+    private GameControll gC;
+    private ViewController vC;
+    private Antwort[] antworten;
+    private String aktuelleFrage;
 
-    public Spielansicht() {
-
+    public Spielansicht(GameControll gameControll, ViewController viewController) {
+        antwortenButtons = new Button[4];
+        antworten = new Antwort[4];
+        gC = gameControll;
+        vC = viewController;
+        setzteErsteFrage();
     }
 
     @Override
-    public void keyPressed(int key) {
-
-    }
-
-    @Override
-    public void keyReleased(int key) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
+    public void reagiereAufButton(int buttonNummer) {
+        gC.naechsteFrage(antworten[buttonNummer]);
+        aktualisiereFragenWerte();
     }
 
     @Override
     public void draw(DrawTool drawTool) {
-
+        drawTool.drawText(20,20,aktuelleFrage);
     }
 
     @Override
     public void update(double dt) {
 
+    }
+
+    private void setzteErsteFrage(){
+        aktualisiereFragenWerte();
+        for(int i = 0; i < antwortenButtons.length; i++){
+            antwortenButtons[i] = new Button(i, 0, 300+i*40, antworten[i].getAntwortText(), 40, this);
+        }
+    }
+
+    private void aktualisiereFragenWerte(){
+        antworten = gC.getAktuelleFrage().getAntworten();
+        aktuelleFrage = gC.getAktuelleFrage().getText();
     }
 }
