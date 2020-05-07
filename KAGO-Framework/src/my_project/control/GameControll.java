@@ -41,6 +41,59 @@ public class GameControll {
         fragen = new BinaryTree<>();
         //fragen.setContent(new Frage());
         //Hier müssen alle Fragen ergänzt werden.
+        BinaryTree<Frage> rT = new BinaryTree<>();
+        BinaryTree<Frage> lT = new BinaryTree<>();
+        BinaryTree<Frage> fuenf03 = new BinaryTree<>();
+        fuenf03.setLeftTree(lT);
+        fuenf03.setRightTree(rT);
+        BinaryTree<Frage> fuenf01 = new BinaryTree<>();
+        BinaryTree<Frage> fuenf02 = new BinaryTree<>();
+        BinaryTree<Frage> fuenf04 = new BinaryTree<>();
+        BinaryTree<Frage> fuenf05 = new BinaryTree<>();
+        BinaryTree<Frage> fuenf06 = new BinaryTree<>();
+
+        BinaryTree<Frage> vier01 = new BinaryTree<>();
+        vier01.setLeftTree(fuenf01);
+        vier01.setRightTree(fuenf02);
+        BinaryTree<Frage> vier02 = new BinaryTree<>();
+        vier02.setLeftTree(fuenf03);
+        vier02.setRightTree(fuenf04);
+        BinaryTree<Frage> vier03 = new BinaryTree<>();
+        BinaryTree<Frage> vier04 = new BinaryTree<>();
+        BinaryTree<Frage> vier05 = new BinaryTree<>();
+        BinaryTree<Frage> vier06 = new BinaryTree<>();
+        vier06.setLeftTree(fuenf05);
+        vier06.setRightTree(fuenf06);
+
+        BinaryTree<Frage> drei01 = new BinaryTree<>();
+        drei01.setLeftTree(vier01);
+        drei01.setRightTree(vier02);
+        BinaryTree<Frage> drei02 = new BinaryTree<>();
+        drei02.setLeftTree(vier03);
+        drei02.setRightTree(vier04);
+        BinaryTree<Frage> drei03 = new BinaryTree<>();
+        BinaryTree<Frage> drei04 = new BinaryTree<>();
+        drei04.setLeftTree(vier05);
+        drei04.setRightTree(vier06);
+
+        BinaryTree<Frage> zwei01 = new BinaryTree<>();
+        zwei01.setLeftTree(drei01);
+        zwei01.setRightTree(drei02);
+        BinaryTree<Frage> zwei02 = new BinaryTree<>();
+        BinaryTree<Frage> zwei03 = new BinaryTree<>();
+        BinaryTree<Frage> zwei04 = new BinaryTree<>();
+        zwei04.setLeftTree(drei03);
+        zwei04.setRightTree(drei04);
+
+        BinaryTree<Frage> eins01 = new BinaryTree<>();
+        eins01.setLeftTree(zwei01);
+        eins01.setRightTree(zwei02);
+        BinaryTree<Frage> eins02 = new BinaryTree<>();
+        eins02.setLeftTree(zwei03);
+        eins02.setRightTree(zwei04);
+
+        fragen.setLeftTree(eins01);
+        fragen.setRightTree(eins02);
     }
 
     public Frage getAktuelleFrage(){
