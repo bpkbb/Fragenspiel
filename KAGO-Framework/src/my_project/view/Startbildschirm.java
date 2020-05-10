@@ -8,18 +8,19 @@ import my_project.control.GameControll;
 import my_project.model.ButtonUser;
 
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 public class Startbildschirm extends GraphicalObject implements ButtonUser {
 
-    private String starttext;
+    private BufferedImage starttext;
     private StartHintergrund sH;
     private Button startButton;
     private GameControll gC;
     private ViewController vC;
 
-    public Startbildschirm(GameControll gameControll, ViewController viewController) {
-        starttext = "....";
+    public Startbildschirm(GameControll gameControll, ViewController viewController, BufferedImage bild) {
         vC = viewController;
+        starttext = bild;
         sH = new StartHintergrund();
         vC.draw(sH, 0);
         gC = gameControll;
@@ -38,8 +39,7 @@ public class Startbildschirm extends GraphicalObject implements ButtonUser {
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.setCurrentColor(255, 0,0,255);
-        drawTool.drawText(100,200, starttext);
+        drawTool.drawImage(starttext,0,0);
     }
 
     @Override

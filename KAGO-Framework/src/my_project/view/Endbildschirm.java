@@ -25,7 +25,8 @@ public class Endbildschirm extends GraphicalObject implements ButtonUser {
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.drawText(150,150, gC.getAktuelleFrage().getText());
+        //drawTool.drawText(150,150, gC.getAktuelleFrage().getText());
+        drawTool.drawImage(gC.getAktuelleFrage().getText(),0,0);
     }
 
     @Override

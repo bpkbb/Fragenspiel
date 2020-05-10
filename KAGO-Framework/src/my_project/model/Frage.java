@@ -1,10 +1,12 @@
 package my_project.model;
 
+import java.awt.image.BufferedImage;
+
 public class Frage {
-    private String text;
+    private BufferedImage text;
     private Antwort[] antworten;
 
-    public Frage(String fragenText, String antwort1, int folge1, String antwort2, int folge2, String antwort3, int folge3, String antwort4, int folge4){
+    public Frage(BufferedImage fragenText, String antwort1, int folge1, String antwort2, int folge2, String antwort3, int folge3, String antwort4, int folge4){
         text = fragenText;
         antworten = new Antwort[4];
         antworten[0] = new Antwort(folge1, antwort1);
@@ -13,7 +15,7 @@ public class Frage {
         antworten[3] = new Antwort(folge4, antwort4);
     }
 
-    public String getText() {
+    public BufferedImage getText() {
         return text;
     }
 

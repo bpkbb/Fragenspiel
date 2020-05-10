@@ -7,8 +7,10 @@ import KAGO_framework.view.DrawTool;
 import my_project.control.GameControll;
 import my_project.model.Antwort;
 import my_project.model.ButtonUser;
+import my_project.model.Frage;
 
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 public class Spielansicht extends GraphicalObject implements ButtonUser {
 
@@ -16,7 +18,8 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
     private GameControll gC;
     private ViewController vC;
     private Antwort[] antworten;
-    private String aktuelleFrage;
+    private Frage aktuelleFrage;
+    //private String aktuelleFrage
 
     public Spielansicht(GameControll gameControll, ViewController viewController) {
         antwortenButtons = new Button[4];
@@ -34,7 +37,8 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.drawText(20,40,aktuelleFrage);
+        //drawTool.drawText(20,40,aktuelleFrage);
+        drawTool.drawImage(aktuelleFrage.getText(),0,0);
     }
 
     @Override
@@ -44,7 +48,8 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
 
     private void setzteErsteFrage(){
         antworten = gC.getAktuelleFrage().getAntworten();
-        aktuelleFrage = gC.getAktuelleFrage().getText();
+        //aktuelleFrage = gC.getAktuelleFrage().getText();
+        aktuelleFrage = gC.getAktuelleFrage();
         for(int i = 0; i < antwortenButtons.length; i++){
             antwortenButtons[i] = new Button(i, 0, 300+i*40, antworten[i].getAntwortText(), 40, this);
             vC.draw(antwortenButtons[i], 1);
@@ -57,6 +62,7 @@ public class Spielansicht extends GraphicalObject implements ButtonUser {
         for(int i = 0; i < antwortenButtons.length; i++){
             antwortenButtons[i].aktulisiereAnzeige(antworten[i].getAntwortText());
         }
-        aktuelleFrage = gC.getAktuelleFrage().getText();
+        aktuelleFrage = gC.getAktuelleFrage();
+        //akzuelleFrage = gC.getAktuelleFrage().getText();
     }
 }
